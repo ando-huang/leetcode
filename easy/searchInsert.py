@@ -1,6 +1,6 @@
 '''
-    faster than 48% of python sols
-    less space than 10% of python sols
+    48ms faster than 63% of python sols
+    14.8MB less than 20% of python sols
 '''
 
 class Solution:
