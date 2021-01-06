@@ -4,6 +4,7 @@
 '''
 
 def firstMissingPositive(nums):
+    nums.sort()
     expected = 1
     for i in nums:
         if i == expected:
