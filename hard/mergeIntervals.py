@@ -1,3 +1,8 @@
+'''
+    INCOMPLETE SOL, missing some edge cases
+
+'''
+
 class Solution:
     def solve(self, intervals, target):
         if len(intervals) == 0:
@@ -21,4 +26,19 @@ class Solution:
         intervals[i] = newInt
 
         return intervals
+    
+    def solve2(self, intervals, target):
+        newInt = [-1, -1]
+        if intervals[0][0] < target[0]:
+            newInt[0] = target[0]
+        max = len(intervals)-1
+        i = 0
+        while i <= max and intervals[i][1] < target[0]:
+            i += 1
+        j = i
+        while j <= max and intervals[i][0] < target[1]:
+            j += 1 
+
+        return intervals
+        
 
