@@ -41,4 +41,15 @@ class Solution:
 
         return intervals
         
+    def solve3(self, intervals, target):
+        newInt = []
+        for i in range(len(intervals)):
+            if target[0] > intervals[i][0]:
+                newInt.append(intervals[i])
+            elif target[1] < intervals[i][1]:
+                return newInt + [target] + intervals[i:]
+            else:
+                target[0] = min(target[0], intervals[i][0])
+                target[1] = max(target[1], intervals[i][1])
 
+        return newInt + [target]
