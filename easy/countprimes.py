@@ -1,14 +1,16 @@
+'''
+    240ms, faster than 90.63% of python sols
+    37.3mb, less than 26.17% of python sols
+
+'''
+
 class Solution:
     def countPrimes(self, n: int) -> int:
-        nums = [i for i in range(2, n)]
-        primecount = 0
-        for i in range(len(nums)/2):
-            if nums[i] != -1:
-                for j in range(i*2, len(nums)):
-                    nums[j] = -1
-                primecount += 1
-        for i in range(len(nums)/2, len(nums)):
-            if nums[i] != -1:
-                primecount += 1
-                
-        return primecount
+        if n < 2:
+            return 0
+        s = [1] * n
+        s[0] = s[1] = 0
+        for i in range(2, int(n ** 0.5) + 1):
+            if s[i] == 1:
+                s[i * i:n:i] = [0] * len(s[i * i:n:i])
+        return sum(s)
